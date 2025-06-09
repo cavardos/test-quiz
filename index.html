@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบทดสอบรากฐานศีลธรรม</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans p-4">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+
+    <h1 class="text-2xl font-bold text-center mb-6 text-blue-700">
+      แบบทดสอบรากฐานศีลธรรม
+    </h1>
+
+    <!-- ขั้นตอนที่ 1: เก็บข้อมูลผู้ใช้ -->
+    <div id="user-info" class="mb-6">
+      <h2 class="text-lg font-semibold mb-4">ข้อมูลทั่วไป</h2>
+      <div class="space-y-4">
+        <!-- กลุ่มอายุ -->
+        <p class="font-medium">อายุ (เลือกกลุ่ม)</p>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
+            <input type="radio" name="age_range" value="18-24" class="mr-2">18‑24
+          </label>
+          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
+            <input type="radio" name="age_range" value="25-34" class="mr-2">25‑34
+          </label>
+          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
+            <input type="radio" name="age_range" value="35-44" class="mr-2">35‑44
+          </label>
+          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
+            <input type="radio" name="age_range" value="45-60" class="mr-2">45‑60
+          </label>
+          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
+            <input type="radio" name="age_range" value="60+" class="mr-2">60+
+          </label>
+          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
+            <input type="radio" name="age_range" value="prefer_not_say" class="mr-2">ไม่ระบุ
+          </label>
+        </div>
+
+        <!-- เพศ -->
+        <div>
+          <p class="font-medium">เพศ</p>
+          <label class="inline-flex items-center mr-4">
+            <input type="radio" name="gender" value="ชาย" class="mr-2">ชาย
+          </label>
+          <label class="inline-flex items-center mr-4">
+            <input type="radio" name="gender" value="หญิง" class="mr-2">หญิง
+          </label>
+          <label class="inline-flex items-center">
+            <input type="radio" name="gender" value="อื่น ๆ" class="mr-2">อื่น ๆ / ไม่ระบุ
+          </label>
+        </div>
+
+        <!-- อาชีพ -->
+        <div>
+          <p class="font-medium">อาชีพ</p>
+          <input id="job" type="text" placeholder="ระบุอาชีพของคุณ" class="border p-2 rounded w-full">
+        </div>
+
+        <button id="start-btn" class="mt-4 w-full px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+          เริ่มทำแบบทดสอบ
+        </button>
+      </div>
+    </div>
+
+    <!-- ส่วนแบบสอบถาม -->
+    <form id="question-form" class="hidden flex flex-col gap-6">
+      <div id="question-list"></div>
+      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">ส่งคำตอบ</button>
+    </form>
+
+    <!-- กราฟผลลัพธ์ -->
+    <div id="result-box" class="hidden mt-8">
+      <h2 class="text-xl font-semibold text-center text-green-600 mb-4">ผลลัพธ์ของคุณ</h2>
+      <canvas id="resultChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+
+  <script>
+    /* – โค้ด JavaScript เหมือนเดิม แต่เพิ่มอ่านค่า age_range และ gender ก่อนเริ่ม –
+       รวมถึงสามารถจัดเก็บหรือส่งข้อมูลเพิ่มเติมได้ */
+  </script>
+</body>
+</html>
