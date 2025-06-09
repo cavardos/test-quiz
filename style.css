@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  background-color: #f0f4f8;
+  padding: 20px;
+}
+#app {
+  :contentReference[oaicite:12]{index=12}
+  margin: auto;
+  background: white;
+  padding: 20px;
+  :contentReference[oaicite:13]{index=13}
+}
+button {
+  :contentReference[oaicite:14]{index=14}
+  :contentReference[oaicite:15]{index=15}
+}
