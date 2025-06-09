@@ -9,71 +9,49 @@
 </head>
 <body class="bg-gray-100 font-sans p-4">
   <div class="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+    <h1 class="text-2xl font-bold text-center mb-6 text-blue-700">แบบทดสอบรากฐานศีลธรรม</h1>
 
-    <h1 class="text-2xl font-bold text-center mb-6 text-blue-700">
-      แบบทดสอบรากฐานศีลธรรม
-    </h1>
-
-    <!-- ขั้นตอนที่ 1: เก็บข้อมูลผู้ใช้ -->
+    <!-- ข้อมูลพื้นฐานผู้ทำแบบสอบถาม -->
     <div id="user-info" class="mb-6">
       <h2 class="text-lg font-semibold mb-4">ข้อมูลทั่วไป</h2>
-      <div class="space-y-4">
-        <!-- กลุ่มอายุ -->
-        <p class="font-medium">อายุ (เลือกกลุ่ม)</p>
-        <div class="grid grid-cols-2 gap-2">
-          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
-            <input type="radio" name="age_range" value="18-24" class="mr-2">18‑24
-          </label>
-          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
-            <input type="radio" name="age_range" value="25-34" class="mr-2">25‑34
-          </label>
-          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
-            <input type="radio" name="age_range" value="35-44" class="mr-2">35‑44
-          </label>
-          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
-            <input type="radio" name="age_range" value="45-60" class="mr-2">45‑60
-          </label>
-          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
-            <input type="radio" name="age_range" value="60+" class="mr-2">60+
-          </label>
-          <label class="bg-pink-100 hover:bg-pink-200 p-3 rounded flex justify-center">
-            <input type="radio" name="age_range" value="prefer_not_say" class="mr-2">ไม่ระบุ
-          </label>
-        </div>
+      <div class="grid grid-cols-1 gap-4">
+        <select id="age" class="border p-2 rounded">
+          <option value="">เลือกกลุ่มอายุ</option>
+          <option value="18-24">18-24 ปี</option>
+          <option value="25-34">25-34 ปี</option>
+          <option value="35-44">35-44 ปี</option>
+          <option value="45-60">45-60 ปี</option>
+          <option value="60+">60 ปีขึ้นไป</option>
+          <option value="ไม่ระบุ">ไม่ระบุ</option>
+        </select>
 
-        <!-- เพศ -->
-        <div>
-          <p class="font-medium">เพศ</p>
-          <label class="inline-flex items-center mr-4">
-            <input type="radio" name="gender" value="ชาย" class="mr-2">ชาย
-          </label>
-          <label class="inline-flex items-center mr-4">
-            <input type="radio" name="gender" value="หญิง" class="mr-2">หญิง
-          </label>
-          <label class="inline-flex items-center">
-            <input type="radio" name="gender" value="อื่น ๆ" class="mr-2">อื่น ๆ / ไม่ระบุ
-          </label>
-        </div>
+        <select id="gender" class="border p-2 rounded">
+          <option value="">เลือกเพศ</option>
+          <option value="ชาย">ชาย</option>
+          <option value="หญิง">หญิง</option>
+          <option value="อื่น ๆ">อื่น ๆ / ไม่ระบุ</option>
+        </select>
 
-        <!-- อาชีพ -->
-        <div>
-          <p class="font-medium">อาชีพ</p>
-          <input id="job" type="text" placeholder="ระบุอาชีพของคุณ" class="border p-2 rounded w-full">
-        </div>
+        <select id="job" class="border p-2 rounded">
+          <option value="">เลือกอาชีพ</option>
+          <option value="นักเรียน/นักศึกษา">นักเรียน/นักศึกษา</option>
+          <option value="พนักงานบริษัท">พนักงานบริษัท</option>
+          <option value="ข้าราชการ/รัฐวิสาหกิจ">ข้าราชการ/รัฐวิสาหกิจ</option>
+          <option value="เจ้าของธุรกิจ">เจ้าของธุรกิจ</option>
+          <option value="ฟรีแลนซ์">ฟรีแลนซ์</option>
+          <option value="ว่างงาน">ว่างงาน</option>
+          <option value="อื่น ๆ">อื่น ๆ / ไม่ระบุ</option>
+        </select>
 
-        <button id="start-btn" class="mt-4 w-full px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
-          เริ่มทำแบบทดสอบ
-        </button>
+        <button id="start-btn" class="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">เริ่มทำแบบทดสอบ</button>
       </div>
     </div>
 
-    <!-- ส่วนแบบสอบถาม -->
     <form id="question-form" class="hidden flex flex-col gap-6">
       <div id="question-list"></div>
       <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">ส่งคำตอบ</button>
     </form>
 
-    <!-- กราฟผลลัพธ์ -->
     <div id="result-box" class="hidden mt-8">
       <h2 class="text-xl font-semibold text-center text-green-600 mb-4">ผลลัพธ์ของคุณ</h2>
       <canvas id="resultChart" width="400" height="400"></canvas>
@@ -81,8 +59,108 @@
   </div>
 
   <script>
-    /* – โค้ด JavaScript เหมือนเดิม แต่เพิ่มอ่านค่า age_range และ gender ก่อนเริ่ม –
-       รวมถึงสามารถจัดเก็บหรือส่งข้อมูลเพิ่มเติมได้ */
+    const questions = [
+      { text: "ควรช่วยเหลือผู้อื่นที่กำลังทุกข์ยาก", foundation: "Care" },
+      { text: "ควรให้ความเป็นธรรมกับทุกคน", foundation: "Fairness" },
+      { text: "ทุกคนควรมีเสรีภาพในการเลือกชีวิตของตนเอง", foundation: "Liberty" },
+      { text: "เราควรภักดีต่อกลุ่มของเรา", foundation: "Loyalty" },
+      { text: "เราควรเคารพผู้มีอำนาจ", foundation: "Authority" },
+      { text: "ควรรักษาความสะอาดทางจิตใจและร่างกาย", foundation: "Purity" }
+    ];
+
+    const scoreMap = {
+      strongly_agree: 6,
+      agree: 5,
+      slightly_agree: 4,
+      neutral: 3,
+      slightly_disagree: 2,
+      disagree: 1,
+      strongly_disagree: 0
+    };
+
+    const values = Object.keys(scoreMap);
+    const scores = { Care: 0, Fairness: 0, Liberty: 0, Loyalty: 0, Authority: 0, Purity: 0 };
+
+    const userInfoBox = document.getElementById("user-info");
+    const startBtn = document.getElementById("start-btn");
+    const questionForm = document.getElementById("question-form");
+    const questionList = document.getElementById("question-list");
+    const resultBox = document.getElementById("result-box");
+
+    startBtn.addEventListener("click", () => {
+      const age = document.getElementById("age").value;
+      const job = document.getElementById("job").value;
+      const gender = document.getElementById("gender").value;
+
+      if (!age || !job || !gender) {
+        return alert("กรุณากรอกข้อมูลให้ครบถ้วนก่อนเริ่มแบบทดสอบ");
+      }
+
+      userInfoBox.classList.add("hidden");
+      questionForm.classList.remove("hidden");
+      renderQuestions();
+    });
+
+    function renderQuestions() {
+      questionList.innerHTML = questions.map((q, index) => {
+        const optionsHtml = values.map(val => `
+          <label class="block">
+            <input type="radio" name="q${index}" value="${val}" class="mr-2">
+            ${val.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}
+          </label>
+        `).join("");
+
+        return `
+          <div class="bg-gray-50 p-4 rounded shadow">
+            <p class="font-medium mb-2">${index + 1}. ${q.text}</p>
+            ${optionsHtml}
+          </div>
+        `;
+      }).join("");
+    }
+
+    questionForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(questionForm);
+
+      for (let i = 0; i < questions.length; i++) {
+        const value = formData.get(`q${i}`);
+        if (!value) return alert("กรุณาตอบคำถามทุกข้อก่อนส่ง");
+        scores[questions[i].foundation] += scoreMap[value];
+      }
+
+      questionForm.classList.add("hidden");
+      resultBox.classList.remove("hidden");
+      renderChart();
+    });
+
+    function renderChart() {
+      const ctx = document.getElementById('resultChart').getContext('2d');
+      const data = {
+        labels: Object.keys(scores),
+        datasets: [{
+          label: 'คะแนนของคุณ (%)',
+          data: Object.keys(scores).map(f => Math.round(scores[f] / 6 * 100)),
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      };
+
+      new Chart(ctx, {
+        type: 'radar',
+        data: data,
+        options: {
+          scales: {
+            r: {
+              min: 0,
+              max: 100,
+              ticks: { stepSize: 20 }
+            }
+          }
+        }
+      });
+    }
   </script>
 </body>
 </html>
